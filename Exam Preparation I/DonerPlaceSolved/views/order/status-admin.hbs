@@ -1,0 +1,22 @@
+<div class="orders">
+    <form method="post">
+        {{#each orders}}
+        <div class="order">
+            <span class="order-time">{{this.date}}</span>
+            <span class="order-name">{{this.product.fullName}}</span>
+            <span class="order-status">
+                <select name="{{this._id}}" selected="pending">
+                    <option selected="selected" value="pending">Pending</option>
+                    <option value="inProgress">In Progress</option>
+                    <option value="inTransit" selected>In Transit</option>
+                    <option value="delivered">Delivered</option>
+                </select>
+            </span>
+            <a href="/order/details/{{this._id}}" class="button order-button">Details</a>
+        </div>
+        {{else}}
+        <p>No orders yet</p>
+        {{/each}}
+        <input type="submit" value="Save Changes" class="button" style="border:0">
+    </form>
+</div>

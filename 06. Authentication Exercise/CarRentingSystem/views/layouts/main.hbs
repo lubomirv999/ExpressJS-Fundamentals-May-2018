@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>RentACar</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="icon" href="/favicon.ico?" />
+</head>
+<header>
+    <nav>
+        <img id="logo" src="/logo.png" alt="logo"/>
+        {{#if isAuthenticated}}
+        <ul id="main-nav">
+            <li><a href="/">home</a></li>
+            <li><a href="/car/all">all cars</a></li>
+            <li><a href="/car/create">add car</a></li>
+            <li><a href="/user/profile/me">profile</a></li>
+            <li><a href="/user/logout">logout</a></li>
+        </ul>
+        {{else}}
+        <ul id="user">
+            <li><a href="/user/register">register</a></li>
+            <li><a href="/user/login">login</a></li>
+        </ul>
+        {{/if}}
+    </nav>
+</header>
+<body class="preload">
+    <section id="main-container">
+        <main>
+            {{{ body }}}
+        </main>
+    </section>
+
+    <script>
+        document.onload = function() {
+            document
+                .querySelector('body')
+                .classList
+                .remove('preload');
+        }
+    </script>
+</body>
+<footer>
+    <span>Authentication exercise</span>
+</footer>
+</html>
